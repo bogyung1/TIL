@@ -56,7 +56,7 @@ render에서 만들어진 결과물이 브라우저에 실제로 반영되기 �
 
 ### componentDidCatch 메서드
 컴포넌트 렌더링 도중에 에러가 발생했을 때 애플리케이션이 먹통이 되지 않고 오류 UI를 보여 줄 수 있게 해준다. 
-```
+```js
 componentDidCatch(error, info){
     this.setState({
         error: true

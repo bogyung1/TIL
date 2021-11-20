@@ -9,7 +9,7 @@
 ## 이벤트 핸들링 연습
 
 ### onChange 이벤트 핸들링
-```
+```js
 <input
     type="text"
     name="message"
@@ -22,7 +22,7 @@
 ```
 e: SyntheticEvent로 웹 브라우저의 네이티브 이벤트를 감싸는 객체
 
-```
+```js
 <input
     type="text"
     name="message"
@@ -42,7 +42,7 @@ e: SyntheticEvent로 웹 브라우저의 네이티브 이벤트를 감싸는 객
 앞에서 언급한 주의사항 중에 "함수 형태의 값을 전달한다"라고 배웠다. 그렇기에 이벤트를 처리할 때 렌더링을 하는 동시에 함수를 만들어서 전달해주겠다. 성능은 별 차이가 없지만, 가독성은 훨씬 높다.
 
 (함수형 컴포넌트로 구현해 보기)
-```
+```js
 const [username, setUsername]=useState('');
 const [message, setMessage]=useState('');
 const onChangeUsername=e=> setUsername(e.target.value);
@@ -61,7 +61,7 @@ const onKeyPress=e=>{
 ```
 이 코드는 input의 개수가 많아지면 e.target.name을 활용하는 것이 더 좋다.
 이번에는 useState를 통해 사용하는 상태에 문자열이 아닌 객체를 넣어 보겠다.
-```
+```js
 const [form, setForm]=useState({
     username: '',
     message: ''

@@ -20,14 +20,14 @@
 - ref를 달고자 하는 요소에 ref라는 콜백 함수를 props로 전달해 주면 된다. 이 콜백 함수는 ref 값을 파라미터로 전달받는다.
 - 함수 내부에서 파라미터로 받은 ref를 컴포넌트의 멤버 변수로 설정해준다.
 
-```
+```js
 <input ref={(ref)=> {this.input=ref}} />
 ```
 this.input은 input 요소의 DOM을 가리킨다.
 
 ### createRef를 통한 ref 설정
 리액트에 내장되어 있는 createRef라는 함수를 사용하는 것이다.
-```
+```js
 class RefSample extends Component{
     input=React.createRef();
 
@@ -47,7 +47,7 @@ class RefSample extends Component{
 
 ## 컴포넌트에 ref 달기
 주로 컴포넌트 내부에 있는 DOM을 컴포넌트 외부에서 사용할 때 쓴다.
-```
+```js
 <MyComponent
     ref={(ref)=> {this.myComponent=ref}} />
 ```

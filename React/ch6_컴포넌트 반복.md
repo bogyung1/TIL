@@ -2,7 +2,7 @@
 
 ## 자바스크립트 배열의 map() 함수
 map 함수를 사용하여 반복되는 컴포넌트를 렌더링할 수 있다. map 함수는 파라미터로 전달된 함수를 사용해서 배열 내 각 요소를 원하는 규칙에 따라 변환한 후 그 결과로 새로운 배열을 생성한다.
-```
+```js
 arr.map(callback, [thisArgs])
 ```
 callback:
@@ -12,12 +12,12 @@ callback:
 thisArg(선택항목):
 - callback 함수 내부에서 사용할 this 레퍼런스
 
-```
+```js
 const numbers=[1,2,3,4,5];
 const result=numbers.map(num=>num*num);
 ```
 ## 데이터 배열을 컴포넌트 배열로 변환하기
-```
+```js
 const names=['snowman', 'ice', 'snow', 'wind'];
 const nameList=names.map(name=><li>{name}</li>);
 return <ul>{nameList}</ul>;
@@ -31,7 +31,7 @@ key 값을 설정할 때는 map 함수의 인자로 전달되는 함수 내부�
 - 따라서 데이터가 가진 고윳값을 key 값으로 설정해야 한다.
 
 하지만 앞의 코드는 고유 번호가 없다. 이때는 map 함수에 전달되는 콜백 함수의 인수인 index 값을 사용하면 된다.
-```
+```js
 const namesList=names.map((name, index)=> <li key={index}>{name}</li>)
 ```
 
@@ -44,7 +44,7 @@ const namesList=names.map((name, index)=> <li key={index}>{name}</li>)
 
 ### 초기 상태 설정하기
 
-```
+```js
 import React, {useState} from 'react';
 const IterationSample=()=>{
     const [names, setNames]=useState([
@@ -64,7 +64,7 @@ export default IterationSample;
 
 ```
 ### 데이터 추가 기능 구현
-```
+```js
 const onChange=e=> setInputText(e.target.value);
 
 const onClick=()=>{
@@ -87,7 +87,7 @@ concat 함수: 새로운 배열을 만들어준다.<p>
 리액트에서 상태를 업데이트할 때는 기존 상태를 그대로 두면서 새로운 값을 상태로 설정해야 한다. 이를 **불변성 유지**라고 한다. 불변성 유지를 해 주어야 나중에 리액트 컴포넌트의 성능을 최적화할 수 있다.
 
 ### 제거
-```
+```js
 const onRemove=id=>{
     const nextNames=names.filter(name=>name.id!==id);
     setNames(nextNames);

@@ -103,3 +103,49 @@ var app = new Vue({
   }
 })
 ```
+
+
+## 컴포넌트 작성법
+독립적이며 재사용할 수 있는 컴포넌트로 추상적 개념이다. Vue에서 컴포넌트는 미리 정의된 옵션을 가진 Vue 인스턴스이다. 
+
+<p>등록하는 방법
+
+```js
+Vue.component('todo-item',{
+  template: '<li>오늘의 할 일</li>'
+})
+var app=new Vue(...)
+```
+```html
+<ol>
+  <todo-item></todo-item>
+</ol>
+```
+부모 영역의 데이터를 자식 컴포넌트에 전달할 수 있어야 한다. prop을 전달받을 수 있도록 수정해본다.
+```js
+Vue.component('todo-item',{
+  props: ['todo'],
+  template: '<li>{{todo.text}}</li>'
+})
+
+var app = new Vue({
+  el: '#main',
+  data: {
+    //JS 형식으로 데이터가 구성되어 있음
+    groceryList: [
+      { id: 0, text: 'Vegetables' },
+      { id: 1, text: 'Cheese' },
+      { id: 2, text: 'Whatever else humans are supposed to eat' }
+    ]
+  }
+})
+```
+```html
+<ol>
+    <todo-item
+      v-for="item in groceryList"
+      v-bind:todo="item"
+      v-bind:key="item.id"
+    ></todo-item>
+  </ol>
+```

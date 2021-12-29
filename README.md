@@ -14,5 +14,9 @@
 - ## Vue Js
     참고: https://kr.vuejs.org/v2/guide/
     - CH01. Vue 시작
+
+- ## Redux
+    참고: https://nomadcoders.co/redux-for-beginners/lobby
+    - CH01. Redux 시작
     
     
